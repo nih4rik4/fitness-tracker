@@ -70,5 +70,5 @@ Runs locally on the XAMPP server for development and testing.
 
 6.Run the Application
 -Open your browser and go to:
- <pre> ```http://localhost/fitness-tracker/ ``` </pre>
+ <pre>```http://localhost/fitness-tracker/ ```</pre>
 
