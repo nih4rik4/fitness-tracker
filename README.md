@@ -43,3 +43,32 @@ Runs locally on the XAMPP server for development and testing.
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/nih4rik4/fitness-tracker.git
+
+2. Move the Project Folder
+
+ <pre> ```C:\xampp\htdocs\fitness-tracker``` </pre>
+
+3.Start XAMPP
+ -Launch Apache and MySQL
+ -Set Up the Database
+ -Open http://localhost/phpmyadmin
+
+4.Create a new database named:
+ fitnesstracker_db
+
+  -Go to the Import tab
+ -Select the file: sql/fitness_db.sql from the project
+ -Click Go to import tables and sample data
+ 
+ 5.Update Database Config
+ -In config.php, check your connection settings:
+
+ <pre> ``` $host = "localhost";
+ $username = "root";
+ $password = "";
+ $database = "fitness_db"; ``` </pre>
+
+6.Run the Application
+-Open your browser and go to:
+ <pre> ```http://localhost/fitness-tracker/ ``` </pre>
+
