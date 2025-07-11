@@ -66,7 +66,7 @@ Runs locally on the XAMPP server for development and testing.
  <pre>  $host = "localhost";
  $username = "root";
  $password = "";
- $database = "fitness_db";  </pre>
+ $database = "fitnesstracker_db";  </pre>
 
 6.Run the Application
 -Open your browser and go to:
