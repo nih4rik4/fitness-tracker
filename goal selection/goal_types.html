@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goal Types</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shadow-container">
+    <div class="goal-types">
+      <h1>Goal Types</h1>
+      <p>Select only 1 goal:</p>
+      <div class="button-container" id="goalButtons"></div>
+      <div class="target-inputs" id="targetInputs"></div>
+      <div class="nav-buttons">
+        <button onclick="history.back()" class="nav-button">Back</button>
+        <button onclick="handleSubmit()" class="nav-button">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const goalTypes = ["Gain Weight", "Lose Weight", "Maintain Weight", "Manage Stress", "Improve Endurance"];
+    let selectedGoal = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user_id');
+
+    function handleGoalClick(goal) {
+      selectedGoal = selectedGoal === goal ? null : goal;
+      renderGoalButtons();
+      renderTargetInputs();
+    }
+
+    function renderGoalButtons() {
+      document.getElementById('goalButtons').innerHTML = goalTypes.map(goal =>
+        `<button onclick="handleGoalClick('${goal}')" class="custom-button ${selectedGoal === goal ? 'selected' : ''}">${goal}</button>`
+      ).join('');
+    }
+
+    function renderTargetInputs() {
+      document.getElementById('targetInputs').innerHTML = selectedGoal && 
+        ["Gain Weight", "Lose Weight", "Maintain Weight"].includes(selectedGoal)
+        ? `<label>${selectedGoal} Target Value: <input type="number" placeholder="Enter target value" id="target_${selectedGoal}" required></label>`
+        : '';
+    }
+
+    async function handleSubmit() {
+      if (selectedGoal && ["Gain Weight", "Lose Weight", "Maintain Weight"].includes(selectedGoal)) {
+        const targetInput = document.getElementById(`target_${selectedGoal}`);
+        const targetValue = targetInput ? targetInput.value.trim() : '';
+
+        if (!targetValue) {
+          alert('Please enter a target value for your weight goal.');
+          targetInput.focus();
+          return;
+        }
+      }
+
+      const goalsWithValues = selectedGoal ? [{
+        goal_id: goalTypes.indexOf(selectedGoal) + 1,
+        target_value: document.getElementById(`target_${selectedGoal}`)?.value || 0,
+      }] : [];
+
+      const response = await fetch('insert_goals.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: userId, selectedGoals: goalsWithValues }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert('Goal submitted successfully!');
+        window.location.href = `recommendations.html?selectedGoals=${selectedGoal}`;
+      } else {
+        alert(`Failed to submit goal: ${result.error.join(", ")}`);
+      }
+    }
+
+    renderGoalButtons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 1000px; /* Increase container width */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.text-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.text-content h1 {
+    font-size: 2.5em; /* Increase font size */
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 1.25em; /* Increase font size */
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.register-button {
+    padding: 15px 30px;
+    font-size: 1.2em; /* Increase button font size */
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button {
+    padding: 15px 30px;
+    font-size: 1.2em; /* Increase button font size */
+    color: #007bff;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.animation-container {
+    width: 300px; /* Increase animation width */
+    height: 300px; /* Increase animation height */
+}

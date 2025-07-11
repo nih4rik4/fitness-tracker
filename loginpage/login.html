@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+   
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Split container */
+        .split {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .split.left {
+            background:url('fitnessimage.jpeg') no-repeat center center;
+            background-size: contain; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+
+
+        .split.right {
+            background-color: #d5cece; /* Light background color for the right side */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); /* Adds separation */
+        }
+
+        /* Bigger form container */
+        .form-container {
+            width: 400px; /* Increased width */
+            padding: 30px; /* Increased padding */
+            background-color:  #ffffff; /* White background color for the form */
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+            text-align: center;
+        }
+
+        /* Heading styling */
+        .form-container h2 {
+            margin-bottom: 25px; /* Increased margin */
+            font-size: 28px; /* Larger font size */
+            color: #333;
+        }
+
+        /* Label styling */
+        .form-container label {
+            display: block;
+            margin-bottom: 10px; /* Increased spacing */
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        /* Input fields styling */
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 12px; /* Increased padding */
+            margin-bottom: 20px; /* Increased margin */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1.1em; /* Slightly larger text */
+        }
+
+        /* Button styling */
+        .form-container button {
+            width: 100%;
+            padding: 12px; /* Increased padding */
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em; /* Slightly larger text */
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        /* Button hover effect */
+        .form-container button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="split left"></div>
+    <div class="split right">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <label for="user_name">Username:</label>
+                <input type="text" id="user_name" name="user_name" required>
+
+                <label for="pass_word">Password:</label>
+                <input type="password" id="pass_word" name="pass_word" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

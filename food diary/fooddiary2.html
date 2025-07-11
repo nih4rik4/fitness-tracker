@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+    <style>
+     .table-headerr {
+          display: flex;
+          justify-content: center; /* Centers the table */
+          background-color: #f1f1f1;
+          padding: 10px 0;
+          font-weight: bold;
+          text-align: center;
+      }
+     .table-headerr th, .table-headerr td {
+          padding: 10px;
+          text-align: center;
+          border: 1px solid #ddd;
+      }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f5f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .right-aligned-table {
+          margin-left: 300px; /* Centers the table within the container */
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 10px;
+          text-align: left;
+      }
+      
+      
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .date-picker {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .date-picker input[type="date"] {
+            margin-left: 10px;
+            padding: 5px;
+            font-size: 1em;
+        }
+        .meal-section {
+            margin-top: 15px;
+        }
+        .meal-section h3 {
+            font-size: 1.2em;
+            color: #2a5078;
+        }
+        .meal-section .add-food {
+            color: #0078d7;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-right: 10px;
+        }
+        .table-header {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f1f1f1;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        .totals-section {
+            margin-top: 20px;
+        }
+        .totals-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .totals-section th, .totals-section td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .complete-entry {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .complete-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            z-index: 1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .dropdown-content a {
+            color: #0078d7;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+     <div class="header">Your Food Diary For: <span id="display-date"></span></div>
+     <div class="date-picker">
+         <label for="food-diary-date">Date:</label>
+         <input type="date" id="food-diary-date" name="food-diary-date" value="2024-11-05" onchange="updateDisplayDate()">
+     
+     </div>
+     <div class="table-headerr">
+          <!-- <table class="right-aligned-table">
+               <tread>
+<tr>
+     <th>Food Item</th>
+
+     <td>
+          Calories kcal
+     </td>
+     <td>
+          Carbs g
+     </td>
+     <td>
+          Fat g
+     </td>
+     <td>
+          Protein g
+     </td>
+     <td>
+          Sodium mg
+     </td>
+     <td>
+          Sugar g
+     </td>
+</tr>
+<tread>
+
+         
+          </div>
+          </table> -->
+          <table id="breakfast-table" class="table">
+               <thead>
+                   <tr class="table-header">
+                       <th>Food Item</th>
+                     
+                       <th id="total-calories"></th>
+                        <th id="total-carbs">Carbs g</th>
+                        <th id="total-fat">Fat g</th>
+                        <th id="total-protein">Protein g</th>
+                        <th id="total-sodium">Sodium mg</th>
+                        <th id="total-sugar">Sugar g</th>
+                   </tr>
+               </thead>
+               <tbody></tbody>
+           </table>
+      </div>
+        <!-- Meal Sections -->
+        <div class="meal-section">
+            <h3>Breakfast</h3>
+            <span class="add-food" onclick="add-food('breakfast')">Add Food</span> |
+            <!-- <span class="add-button" onclick="add-food('breakfast')">Add Food</span> -->
+            <div class="dropdown">
+                <span class="add-food" onclick="toggleDropdown(this)">Quick Tools</span>
+                <div class="dropdown-content">
+                    <a href="#">Remember meal</a>
+                    <a href="#">Copy yesterday</a>
+                    <a href="#">Copy from date</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="meal-section">
+            <h3>Lunch</h3>
+            <span class="add-food">Add Food</span> |
+            <div class="dropdown">
+                <span class="add-food" onclick="toggleDropdown(this)">Quick Tools</span>
+                <div class="dropdown-content">
+                    <a href="#">Remember meal</a>
+                    <a href="#">Copy yesterday</a>
+                    <a href="#">Copy from date</a>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="meal-section">
+            <h3>Dinner</h3>
+            <span class="add-food">Add Food</span> |
+            <div class="dropdown">
+                <span class="add-food" onclick="toggleDropdown(this)">Quick Tools</span>
+                <div class="dropdown-content">
+                    <a href="#">Remember meal</a>
+                    <a href="#">Copy yesterday</a>
+                    <a href="#">Copy from date</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="meal-section">
+            <h3>Snacks</h3>
+            <span class="add-food">Add Food</span> |
+            <div class="dropdown">
+                <span class="add-food" onclick="toggleDropdown(this)">Quick Tools</span>
+                <div class="dropdown-content">
+                    <a href="#">Remember meal</a>
+                    <a href="#">Copy yesterday</a>
+                    <a href="#">Copy from date</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nutritional Table Header -->
+      
+
+        <!-- Totals Section -->
+        <div class="totals-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Totals</th>
+                        <th id="total-calories">0</th>
+                        <th id="total-carbs">0</th>
+                        <th id="total-fat">0</th>
+                        <th id="total-protein">0</th>
+                        <th id="total-sodium">0</th>
+                        <th id="total-sugar">0</th>
+                    </tr>
+                    <tr>
+                        <th>Your Daily Goal</th>
+                       
+                        <th id="total-calories">1580</th>
+                        <th id="total-carbs">198</th>
+                        <th id="total-fat">53</th>
+                        <th id="total-protein">80</th>
+                        <th id="total-sodium">2300</th>
+                        <th id="total-sugar">59</th>
+                    </tr>
+                    <tr>
+                        <th>Remaining</th>
+                        
+                        <th id="total-calories">1580</th>
+                        <th id="total-carbs">198</th>
+                        <th id="total-fat">53</th>
+                        <th id="total-protein">80</th>
+                        <th id="total-sodium">2300</th>
+                        <th id="total-sugar">59</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <!-- Complete Entry Button -->
+        <div class="complete-entry">
+            <button class="complete-button">Complete This Entry</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(element) {
+            const dropdownContent = element.nextElementSibling;
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.add-food')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        function updateDisplayDate() {
+          const datePicker = document.getElementById("food-diary-date");
+          const displayDate = document.getElementById("display-date");
+          displayDate.innerText = new Date(datePicker.value).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      // Set initial date display
+      updateDisplayDate();
+   
+     function addFoodItem(meal) {
+         const foodItem = { name: "Sample Food", calories: 150, carbs: 20, fat: 5, protein: 10, sodium: 50, sugar: 8 };
+         
+         const tableBody = document.querySelector(`#${meal}-table tbody`);
+         const row = document.createElement("tr");
+
+         row.innerHTML = `
+             <td>${foodItem.name}</td>
+             <td>${foodItem.calories}</td>
+             <td>${foodItem.carbs}</td>
+             <td>${foodItem.fat}</td>
+             <td>${foodItem.protein}</td>
+             <td>${foodItem.sodium}</td>
+             <td>${foodItem.sugar}</td>
+         `;
+         tableBody.appendChild(row);
+         
+         updateTotals(foodItem);
+     }
+
+     function updateTotals(foodItem) {
+         document.getElementById("total-calories").innerText = parseInt(document.getElementById("total-calories").innerText) + foodItem.calories;
+         document.getElementById("total-carbs").innerText = parseInt(document.getElementById("total-carbs").innerText) + foodItem.carbs;
+         document.getElementById("total-fat").innerText = parseInt(document.getElementById("total-fat").innerText) + foodItem.fat;
+         document.getElementById("total-protein").innerText = parseInt(document.getElementById("total-protein").innerText) + foodItem.protein;
+         document.getElementById("total-sodium").innerText = parseInt(document.getElementById("total-sodium").innerText) + foodItem.sodium;
+         document.getElementById("total-sugar").innerText = parseInt(document.getElementById("total-sugar").innerText) + foodItem.sugar;
+     }
+ </script>
+</body>
+</html>

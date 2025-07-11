@@ -1,0 +1,133 @@
+
+/* Custom styling for the page */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #000000; /* Set navbar background to black */
+    border-bottom: 1px solid #e9ecef;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffffff; /* White color for the brand text */
+}
+
+.navbar .nav-link {
+    font-weight: 700;
+    color: #ffffff; /* Pure white color for the links */
+    font-size: 1.2rem; /* Increase font size as needed */
+}
+
+.navbar .nav-link:hover {
+    color: #28a745; /* Keep hover color as green for visual effect */
+}
+
+
+
+
+
+/* Section Padding */
+.section-padding {
+    padding: 60px 0; /* Equal padding for each section */
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+.hero-text {
+    font-size: 1.5rem;
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.hero-animation {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+}
+
+/* Feature Cards Section */
+.feature-cards .section-title {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+.feature-cards .intro-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+.card {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.card-body {
+    padding: 20px;
+}
+.card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.card-text {
+    color: #777;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+.image-gallery {
+    display: flex;
+    gap: 20px;
+    margin-right: 40px;
+    align-items: center;
+}
+.image-gallery .small-image,
+.image-gallery .large-image {
+    border-radius: 15px;
+    object-fit: cover;
+}
+.image-gallery .small-image {
+    width: 120px;
+    height: 180px;
+}
+.image-gallery .large-image {
+    width: 220px;
+    height: 300px;
+}
+.philosophy-content {
+    max-width: 600px;
+}
+.philosophy-content h4 {
+    color: #777;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.philosophy-content h1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+.philosophy-content p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.philosophy-content .author {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 500;
+}

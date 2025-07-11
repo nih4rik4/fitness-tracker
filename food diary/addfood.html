@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Food Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f5f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 1em;
+            width: 50%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+
+        .button2 {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+
+        .custom-food-section {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+
+        .custom-food-section label {
+            font-size: 1em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .custom-food-section input[type="text"],
+        .custom-food-section input[type="number"] {
+            padding: 8px;
+            font-size: 1em;
+            width: 60%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .input-group-row {
+            display: flex;
+            justify-content:left ; /* Align items horizontally */
+            align-items:center;
+            margin-bottom: 20px;
+        }
+
+        .serving {
+            flex: 3;
+        }
+
+        .quantity {
+            flex: 3;
+        }
+
+        .input-group-row label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0a0909e0;
+        }
+
+        .input-group-row input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 50%;
+        }
+
+        .meal-type-section {
+            margin-top: 15px;
+        }
+
+        .meal-type-section label {
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+        .input-groupp {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        
+        .input-groupp label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .input-groupp input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 50px;  /* Adjust the width for input fields */
+        }
+        
+        .input-groupp select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            width: 150px;  /* Adjust the width for the dropdown (smaller width) */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Add into Diary by Searching in Database!</div>
+        <form method="POST" action="search_food.php">
+            <div class="form-group">
+                <label for="search">Search Food:</label>
+                <input type="text" id="search" name="search" required>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+
+        <!-- Custom Food Entry Section -->
+        <div class="custom-food-section">
+            <div class="header">Add Your Own Recipe/Food!</div>
+            <form id="customFoodForm" method="POST" action="add_to_diary2.php">
+                <label for="customFoodName">Food Name:</label>
+                <input type="text" id="customFoodName" name="customFoodName" required>
+
+                <label for="calories">Calories (kcal):</label>
+                <input type="text" id="calories" name="calories" required>
+
+                <label for="protein">Protein (g):</label>
+                <input type="text" id="protein" name="protein">
+
+                <label for="carbs">Carbohydrates (g):</label>
+                <input type="text" id="carbs" name="carbs">
+                
+                <label for="fat">Fat (g):</label>
+                <input type="text" id="fat" name="fat">
+
+                <label for="sodium">Sodium (mg):</label>
+                <input type="text" id="sodium" name="sodium">
+
+                <label for="sugars">Sugars (g):</label>
+                <input type="text" id="sugars" name="sugars">
+
+              
+                
+                <!-- Serving Size and Quantity Inputs -->
+                <div class="input-group-row">
+                    <div class="serving">
+                        <label for="serving">Serving Size (e.g., 1 cup, 100g):</label>
+                        <input type="text" id="serving" name="serving" placeholder="Enter serving size" required>
+                    </div>
+                    <div class="quantity">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <!-- Meal Type Dropdown -->
+                 <div class="input-group">
+    <label for="mealType">Meal Type:</label>
+    <select id="mealType">
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snacks">Snack</option>
+    </select>
+</div>
+
+
+                <div class="button-container">
+                    <!-- Submit Button -->
+                    <button type="button" class="button2" onclick="addFoodToDiary()">Add to Diary</button>
+
+                    <button type="button" onclick="window.location.href='fooddiary.php';">Back to Food Diary</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function addFoodToDiary() {
+            // Get form data
+            const customFoodName = document.getElementById('customFoodName').value;
+            const calories = document.getElementById('calories').value;
+            const protein = document.getElementById('protein').value;
+            const carbs = document.getElementById('carbs').value;
+            const fat = document.getElementById('fat').value;
+            const sodium = document.getElementById('sodium').value;
+            const sugars = document.getElementById('sugars').value;
+            const serving = document.getElementById('serving').value;
+            const quantity = document.getElementById('quantity').value;
+            const mealType = document.getElementById('mealType').value;
+        
+            // Validate form fields
+            if (!customFoodName || !calories || !serving || !quantity || !mealType) {
+                alert("Please fill all the required fields.");
+                return;
+            }
+        
+            // Prepare data as a JSON object
+            const formData = {
+                customFoodName,
+                calories,
+                protein,
+                carbs,
+                fat,
+                sodium,
+                sugars,
+                serving,
+                quantity,
+                mealType
+            };
+        
+            // Send data using fetch
+            fetch('addcustfood.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Food added to diary successfully!');
+                    window.location.href = 'fooddiaryrev.php'; // Redirect to food diary page
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+        if (!customFoodName || !calories || !serving || !quantity || !mealType) {
+            alert("Please fill all the required fields.");
+            return;
+        }
+        
+        
+
+        function openFoodSearch(mealType) {
+            sessionStorage.setItem("mealType", mealType);
+            window.location.href = "addfood.html";
+        }
+        
+    </script>        
+</body>
+</html>

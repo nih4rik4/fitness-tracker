@@ -1,0 +1,97 @@
+/* src/components/GoalTypes.css */
+body, html {
+    height: 100%; /* Ensure the body and html take full height */
+    margin: 0; /* Remove default margin */
+  }
+  /* src/components/GoalTypes.css */
+  
+  .shadow-container {
+  width: 700px;
+  height: 550px;
+  max-width: 500px;
+  margin: 4% auto; /* Reduced top margin from 9% to 4% */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  }
+  
+  
+  .goal-types {
+    text-align: center; /* Center text inside the container */
+    padding: 20px;
+  }
+  
+  .button-container {
+    display: flex; /* Use flexbox for button layout */
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+  }
+  
+  .custom-button {
+    background-color: rgb(226, 166, 166); /* Button background color */
+    color: black; /* Button text color */
+    border: 1px solid black; /* Button border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px 20px; /* Adjust button padding */
+    font-size: 16px; /* Button text size */
+    margin: 5px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth background color and transform transition */
+    width: 75%; /* Set a specific width for the buttons */
+  }
+  
+  .custom-button:hover {
+    background-color: #acb6ac; /* Darker green on hover */
+    transform: scale(1.02); /* Slightly enlarge button on hover */
+  }
+  
+  .custom-button:focus {
+    outline: none; /* Remove default outline on focus */
+  }
+  
+  /* Increase the size of the nav buttons */
+  .nav-button {
+  background-color: #007bff;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px; /* Increased padding for larger size */
+  font-size: 18px; /* Larger font size */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  width: 34%; /* Button width */
+  }
+  
+  .nav-button:hover {
+  background-color: #0056b3;
+  transform: scale(1);
+  }
+  
+  /* src/components/GoalTypes.css */
+  .custom-button.selected {
+  background-color: #007bff;
+  color: white;
+  }
+  
+  /* src/components/GoalTypes.css */
+  .heading {
+  margin-bottom: 20px; /* Adjust this value as needed for spacing */
+  }
+  
+  .recommend{
+  margin-top: 20px;
+  }
+  /* Remove bullets from the goal list */
+  .goal-list {
+  list-style-type: none;
+  padding: 0; /* Optional: Remove default padding */
+  margin: 0; /* Optional: Remove default margin */
+  }
+  
+  .d-inline-block align-text-top{
+  margin-right: 10px;
+  margin-left:20px;
+  }
+  

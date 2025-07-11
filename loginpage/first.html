@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Journey</title>
+    <link rel="stylesheet" href="first.css">
+    <!-- Lottie library for JSON animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-content">
+            <h1>Start your fitness journey today!</h1>
+            <p>Sign up for FitFusion and get started on your path to a healthier lifestyle.</p>
+            <div class="buttons">
+                
+                <a href="signup.html" class="register-link">
+                    <button class="register-button">Register</button>
+                </a>
+                <a href="login.html" class="login-link">
+                    <button class="login-button">Login</button>
+                </a>
+                <a href="admin_login.php" class="login-link" style="text-decoration:none">
+                    <button class="login-button">Admin?
+                </a>
+            </div>
+        </div>
+        <div class="animation-container" id="animation"></div>
+    </div>
+
+    <script>
+        
+        lottie.loadAnimation({
+            container: document.getElementById('animation'), // the DOM element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'banner-animation2.json' // path to your JSON animation file
+        });
+    </script>
+</body>
+</html>

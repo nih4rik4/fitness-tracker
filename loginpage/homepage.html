@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFusion</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="homepage.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <style>
+        /* Ensure there is enough spacing between the links */
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Space between links */
+}
+
+/* Align the "Log Out" button to the right */
+.navbar-nav.ml-auto {
+    margin-left: auto;
+}
+
+/* Button styles for hover effect */
+.btn-logout {
+    background-color: #f44336; /* Red background */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Log Out button */
+.btn-logout:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Left-side navigation links -->
+                <ul class="navbar-nav mr-auto"> <!-- "mr-auto" is used to align to the left -->
+                    <li class="nav-item"><a class="nav-link" href="rec.php">RECCOMENDATION</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fooddiaryrev.php">FOOD DIARY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progress_graph.html">PROGRESS TRACKER</a></li>
+                    <li class="nav-item"><a class="nav-link" href="goal_types.php">SET GOAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php">PROFILE</a></li>
+
+                </ul>
+                <!-- Right-side logout button -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-logout" href="login.html">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section container section-padding">
+        <div class="row align-items-center">
+            <div class="col-md-6 hero-content">
+                <h1>FitFusion</h1>
+                <p class="hero-text">We are here to help you achieve your fitness dreams.</p>
+                <p class="hero-text">कायस्य नित्यं परिरक्षणम् </p>
+                <!-- <p class="hero-text">(Always protect and nurture your body.)</p> -->
+            </div>
+            <div class="col-md-6 hero-animation" id="banner-animation"></div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section -->
+    <section class="feature-cards container section-padding text-center">
+        <h2 class="section-title">The Tools for Your Goals</h2>
+        <p class="intro-text">Trying to lose weight, tone up, lower your BMI, or invest in your overall health? We give you the right features to get there.</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Learn. Track. Improve.</h5>
+                        <p class="card-text">Keeping a food diary helps you understand your habits and to hit your goals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Logging Simplified.</h5>
+                        <p class="card-text">Save meals and use Quick Tools for fast and easy food tracking.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Recommendations.</h5>
+                        <p class="card-text">Personalized recommendations for nutrition and workouts based on your goal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section container section-padding">
+        <div class="image-gallery">
+            <img src="Image1.jpg" alt="Image 1" class="small-image">
+            <img src="Image2.jpg" alt="Image 2" class="large-image">
+            <img src="Image3.jpeg" alt="Image 3" class="small-image">
+        </div>
+        <div class="philosophy-content">
+            <h4>Our Philosophy</h4>
+            <h1>Knowledge is power</h1>
+            <p>
+                “Studies show people who keep a food diary are more likely to hit their goals. 
+                This website simplifies nutrition and calorie tracking, provides the data you want, 
+                and helps you make sense of it all.
+                <br><br>
+                Healthy eating is a continuous journey of self-discovery. And the more you track, 
+                the more empowered you’ll become to make healthy choices that support your goals.”
+            </p>
+            <p class="author">Stephanie Nelson, FitnessFreak Registered Dietitian</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <h2>Fitness Tracker</h2>
+                    </div>
+                    <p>Find your health, and your happiness.</p>
+                    <button class="btn btn-primary">START TODAY</button>
+                </div>
+                <div class="col-md-2">
+                    <h5>Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Exercise</a></li>
+                        <li><a href="#" class="text-white">Apps</a></li>
+                        <li><a href="#" class="text-white">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Blog</a></li>
+                        <li><a href="#" class="text-white">Community</a></li>
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-white">Support Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">Careers</a></li>
+                        <li><a href="#" class="text-white">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <p class="small">
+                        © 2024 Fitness Tracker, Inc. | Community Guidelines | Feedback | Terms | Privacy | API | Cookie Preferences
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white me-2">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white me-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white me-2">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lottie.loadAnimation({
+            container: document.getElementById('banner-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'banner-animation.json'
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
