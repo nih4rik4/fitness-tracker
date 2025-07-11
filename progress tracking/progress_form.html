@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Daily Progress</h2>
+        <form id="progressForm" method="POST" action="insert_progress.php">
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="steps">Steps:</label>
+            <input type="number" id="steps" name="steps" step="any" required>
+
+            <label for="rigorous_minutes">Rigorous Activity (minutes):</label>
+            <input type="number" id="rigorous_minutes" name="rigorous_minutes" step="any" required>
+
+            <label for="semi_rigorous_minutes">Semi-Rigorous Activity (minutes):</label>
+            <input type="number" id="semi_rigorous_minutes" name="semi_rigorous_minutes" step="any" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" step="any" required>
+
+            <label for="water">Water (l):</label>
+            <input type="number" id="water" name="water" step="any" required>
+
+            <label for="sleep">Sleep (hours):</label>
+            <input type="number" id="sleep" name="sleep" step="any" required>
+
+            <button type="submit">Submit</button>
+
+            
+        </form>
+    </div>
+    <script>
+        // Example JavaScript for handling form submission and redirect
+document.getElementById("progressForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch("insert_progress.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Redirect if the response contains the redirect URL
+            if (data.redirect) {
+                window.location.href = "progress_graph.html";
+            }
+        } else {
+            // Handle error (display message, etc.)
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
+
+    </script>
+</body>
+</html>
+

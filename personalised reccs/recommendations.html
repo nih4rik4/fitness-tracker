@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Recommendations</title>
+  <link rel="stylesheet" href="gstyles.css">
+</head>
+<body>
+  <div class="shadow-container">
+    <div class="goal-types">
+      <h3>Great! You,ve just taken a big step on your journey.</h3>
+      <div class="recommend">
+        <p>Based on your goals:</p>
+        <ul class="goal-list" id="goalList"></ul>
+      </div>
+      <p>...we recommend the following plan...</p>
+      <div class="nav-buttons">
+        <button onclick="history.back()" class="nav-button">Back</button>
+        <!-- <button id="nextButton"  class="nav-button">Next</button>           -->
+          <button id="nextButton " class="nav-button" onclick="window.location.href='homepage.html';">Back to Home Page</button>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get selected goals from the URL query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedGoals = urlParams.get('selectedGoals')?.split(',') || [];
+    
+    // Display the selected goals in the list
+    document.getElementById('goalList').innerHTML = selectedGoals.map((goal, i) => `<li><b>${i + 1}</b>. ${goal}</li>`).join('');
+
+    // Attach event listener to the "Next" button
+    document.getElementById('nextButton').addEventListener('click', function() {
+      if (selectedGoals.length > 0) {
+        const goal = selectedGoals[0]; // Use the first goal selected (can change logic for multiple goals)
+        let nextPage;
+
+        // Logic to direct the user to the appropriate page based on the selected goal
+        if (goal.toLowerCase() === 'gain weight') {
+          nextPage = 'gainweight.html'; // Redirect to Gain Weight exercises page
+        } else if (goal.toLowerCase() === 'lose weight') {
+          nextPage = 'loseweight.html'; // Redirect to Lose Weight exercises page
+        } else if (goal.toLowerCase() === 'maintain weight') {
+          nextPage = 'maintainweight.html'; // Redirect to Maintain Weight exercises page
+        } else if (goal.toLowerCase() === 'manage stress') {
+          nextPage = 'managestress.html'; // Redirect to Manage Stress exercises page
+        } else if (goal.toLowerCase() === 'improve endurance') {
+          nextPage = 'improveindurance.html'; // Redirect to Improve Endurance exercises page
+        } else {
+          nextPage = 'signup.html'; // Default fallback
+        }
+
+        // Redirect to the determined exercise page
+        window.location.href = nextPage;
+      }
+    });
+  </script>
+</body>
+</html>
